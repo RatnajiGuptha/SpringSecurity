@@ -1,5 +1,7 @@
 package com.guptha.springcloud.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,6 +28,11 @@ public class CouponRestController {
 	@GetMapping("/coupons/{code}")
 	public Coupon getCoupon(@PathVariable String code) {
 		return repo.findByCode(code);
+	}
+
+	@GetMapping("/allCoupons")
+	public List<Coupon> getAllCoupons() {
+		return repo.findAll();
 	}
 
 }
